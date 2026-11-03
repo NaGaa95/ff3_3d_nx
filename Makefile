@@ -13,7 +13,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 TARGET		:=	ff3_3d_nx
 APP_TITLE	:=	FINAL FANTASY III (3D REMAKE)
 APP_AUTHOR	:=	naga
-APP_VERSION	:=	1.0.0
+APP_VERSION	:=	1.0.1
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
