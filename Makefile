@@ -38,6 +38,9 @@ LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*
 # SDL2 backs the OpenSL ES shim (audio). GLESv1_CM is the fixed-function
 # pipeline the Cuore engine renders with; GLESv2/EGL/glapi/drm_nouveau are
 # pulled in by mesa+SDL2. FreeType+libpng implement drawFont / loadTexture.
+# Publish all EGL presentation paths, including guest import tables.
+LDFLAGS += -Wl,--wrap=eglSwapBuffers,--wrap=eglGetProcAddress,--wrap=__libnx_exit
+
 LIBS	:= -lSDL2 -lGLESv1_CM -lGLESv2 -lEGL -lglapi -ldrm_nouveau \
 			-lavformat -lavcodec -lswscale -lswresample -lavutil -ldav1d \
 			-Wl,--start-group -lfreetype -lharfbuzz -Wl,--end-group \
