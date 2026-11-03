@@ -23,6 +23,12 @@ This will not work in applet/album mode. Use a game override or a forwarder.
 
 Saves, config and logs are stored in `/switch/ff3_3d/`.
 
+### Controls
+
+A confirms and B cancels. X opens the menu and Y interacts with temporary party
+members, matching the Nintendo DS layout. Plus also opens the menu; R and Minus
+open the map.
+
 ### Configuration
 
 `config.txt` is created on first run:

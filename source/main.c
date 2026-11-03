@@ -198,7 +198,7 @@ static void update_touch(void) {
   e_touch(fake_env, thiz, count, count, nx, ny, nx1, ny1, jni_get_key_mask());
 }
 
-// engine button bitmask bits (from MainActivity's keycode->bit table)
+// Android engine button bitmask bits (from MainActivity's keycode->bit table)
 #define K_A     0x00001 // confirm
 #define K_B     0x00002 // cancel
 #define K_RIGHT 0x00010
@@ -208,7 +208,7 @@ static void update_touch(void) {
 #define K_R1    0x00100 // map
 #define K_L1    0x00200
 #define K_Y     0x00400 // pause menu
-#define K_X     0x00800
+#define K_X     0x00800 // party interaction
 
 static PadState pad;
 
@@ -219,11 +219,12 @@ static void update_keys(void) {
   padUpdate(&pad);
   const u64 d = padGetButtons(&pad);
   int m = 0;
-  // Nintendo-native: A (right) confirms, B (bottom) cancels
+  // Nintendo-native: A (right) confirms, B (bottom) cancels.
+  // Match the DS/PSP layout: X (top) opens the menu, Y (left) interacts.
   if (d & HidNpadButton_A) m |= K_A;
   if (d & HidNpadButton_B) m |= K_B;
-  if (d & HidNpadButton_X) m |= K_X;
-  if (d & HidNpadButton_Y) m |= K_Y;   // menu
+  if (d & HidNpadButton_X) m |= K_Y;  // menu
+  if (d & HidNpadButton_Y) m |= K_X;  // party interaction
   if (d & HidNpadButton_L) m |= K_L1;
   if (d & HidNpadButton_R) m |= K_R1;  // map
   if (d & HidNpadButton_Plus)  m |= K_Y;
