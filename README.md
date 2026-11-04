@@ -70,6 +70,3 @@ Fantasy III" are trademarks of their respective owners. All Rights Reserved.
 No assets or program code from the original game or its Android port are included in this
 project. We do not condone piracy in any way, shape or form and encourage users to
 legally own the original game.
-### SaltyNX telemetry
-
-FPS and render resolution are published to SaltyNX shared memory for compatible overlays. The port continues normally when SaltyNX is not running. This reports presentation timing and resolution; it does not change the game's frame cap.
